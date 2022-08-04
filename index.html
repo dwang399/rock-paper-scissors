@@ -66,7 +66,14 @@
                         console.log("It's a tie!");
                     }
                 }
-                return "You have won " + playerWins + " game(s). The computer won " + computerWins + " game(s). " + ties + " game(s) resulted in a tie."
+                console.log("You have won " + playerWins + " game(s). The computer won " + computerWins + " game(s). " + ties + " game(s) resulted in a tie.");
+                if (playerWins > computerWins) {
+                    return "You win! Congratulations!"
+                } else if (computerWins > playerWins) {
+                    return "You lost! Better luck next time!"
+                } else {
+                    return "You tied! You are as smart as a computer!"
+                }
 
             }
         </script>
