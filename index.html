@@ -7,7 +7,6 @@
     </head>
     <body>
         <script>
-            console.log("Hello World!")
             function getComputerChoice() {
                 let x = Math.floor(Math.random()*3);
                 if (x == 0) {
@@ -18,7 +17,58 @@
                     return 'Scissors';
                 }
             }
-            getComputerChoice();
+        
+
+            function playRound() {
+                computerSelection = getComputerChoice();
+                
+                let playerChoice = prompt().toLowerCase();
+                if (playerChoice === 'rock' && computerSelection === 'Rock') {
+                    return "It's a tie!"
+                } else if (playerChoice === 'rock' && computerSelection === 'Paper') {
+                    return "You lose!"
+                } else if (playerChoice === 'rock' && computerSelection === 'Scissors') {
+                    return "You win!"
+                } else if (playerChoice === 'paper' && computerSelection === 'Paper') {
+                    return "It's a tie!"
+                } else if (playerChoice === 'paper' && computerSelection === 'Scissors') {
+                    return "You lose!"
+                } else if (playerChoice === 'paper' && computerSelection === 'Rock') {
+                    return "You win!"
+                } else if (playerChoice === 'scissors' && computerSelection === 'Scissors') {
+                    return "It's a tie!"
+                } else if (playerChoice === 'scissors' && computerSelection === 'Rock') {
+                    return "You lose!"
+                } else if (playerChoice === 'scissors' && computerSelection === 'Paper') {
+                    return "You Win!"
+                } else {
+                    return "That wasn't a valid selection"
+                }
+            }
+
+            function game() {
+                let playerWins = 0;
+                let computerWins = 0;
+                let ties = 0;
+                for (let i = 1; i <= 5; i++) {
+                    result = playRound();
+                    if (result === 'You win!') {
+                        playerWins = playerWins + 1;
+                        console.log(computerSelection);
+                        console.log("You win!");
+                    } else if (result === 'You lose!') {
+                        computerWins = computerWins + 1;
+                        console.log(computerSelection);
+                        console.log("You lose!");
+                    } else {
+                        ties = ties + 1;
+                        console.log(computerSelection);
+                        console.log("It's a tie!");
+                    }
+                }
+                return "You have won " + playerWins + " game(s). The computer won " + computerWins + " game(s). " + ties + " game(s) resulted in a tie."
+
+            }
         </script>
     </body>
 </html>
